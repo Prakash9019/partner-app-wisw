@@ -34,7 +34,7 @@ const WelcomeScreen = () => {
           </TouchableOpacity>
 
           <TouchableOpacity 
-          onPress={() => router.push('/login')}
+          onPress={() => router.push('/signup')}
           >
             <Text style={styles.secondaryLink}>LOGIN TO EXISTING ACCOUNT</Text>
           </TouchableOpacity>

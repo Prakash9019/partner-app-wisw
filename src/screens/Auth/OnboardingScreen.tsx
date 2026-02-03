@@ -5,7 +5,6 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
-  SafeAreaView,
   StatusBar,
   ScrollView,
   KeyboardAvoidingView,
@@ -13,6 +12,7 @@ import {
   Modal,
   FlatList,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/Ionicons'; // Ensure you have this installed
 
 const ProfileSetupScreen = () => {
@@ -53,7 +53,7 @@ const ProfileSetupScreen = () => {
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={{ flex: 1 }}
       >
-        <ScrollView contentContainerStyle={styles.scrollContainer}>
+       
           
           {/* --- Header Section --- */}
           <View style={styles.headerContainer}>
@@ -75,7 +75,7 @@ const ProfileSetupScreen = () => {
               Let’s get to know{'\n'}about you
             </Text>
           </View>
-
+ <ScrollView contentContainerStyle={styles.scrollContainer}>
           {/* --- Form Section --- */}
           <View style={styles.formContainer}>
             

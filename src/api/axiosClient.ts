@@ -3,11 +3,11 @@ import axios from "axios";
 
 /**
  * CHANGE THIS to your backend URL
- * Example:
+ * Example:  10.103.118.192
  *  - http://192.168.1.10:4000/api/v1
  *  - https://api.yourdomain.com/api/v1
  */
-const BASE_URL = "http://192.168.1.10:4000/api/v1";
+const BASE_URL = "http://10.103.118.192:4000/api/";
 
 const axiosClient = axios.create({
   baseURL: BASE_URL,
@@ -39,6 +39,7 @@ axiosClient.interceptors.request.use(
  * - Handles token expiration
  * - Forces logout on 401
  */
+
 axiosClient.interceptors.response.use(
   (response) => response,
   async (error) => {

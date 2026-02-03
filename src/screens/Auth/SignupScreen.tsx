@@ -24,6 +24,7 @@ import { COLORS, FONTS } from "../../utils/theme";
 GoogleSignin.configure({
   webClientId:
     "786143538820-5cgu51uft3ihl0aghurv9rnern0igcqa.apps.googleusercontent.com",
+    offlineAccess: true,
 });
 
 export let loginConfirmation: any = null;
@@ -66,15 +67,13 @@ const SignupScreen = () => {
 
       // 3. Create Credential
       const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-      console.log("hellll");
-      console.log(googleCredential);
       // 4. Sign In to Firebase
       const userCredential =
         await auth().signInWithCredential(googleCredential);
       console.log("Firebase User:", userCredential.user);
       // 5. Get JWT Token for Backend
       const firebaseToken = await userCredential.user.getIdToken();
-      console.log("Firebase Token:", firebaseToken);
+      // console.log("Firebase Token:", firebaseToken);
       // 6. Send to Backend
       await handleBackendAuth(firebaseToken);
     } catch (error: any) {

@@ -1,12 +1,12 @@
-// app/_layout.tsx
-import { Stack } from 'expo-router';
+import { Stack } from "expo-router";
 import { useFonts, Poppins_400Regular, Poppins_500Medium, Poppins_700Bold } from '@expo-google-fonts/poppins';
-import { useEffect } from 'react';
+import { useEffect } from "react";
 import * as SplashScreen from 'expo-splash-screen';
+import { StatusBar } from "react-native";
 
 SplashScreen.preventAutoHideAsync();
 
-export default function Layout() {
+export default function RootLayout() {
   const [fontsLoaded] = useFonts({
     Poppins_400Regular,
     Poppins_500Medium,
@@ -22,12 +22,12 @@ export default function Layout() {
   if (!fontsLoaded) return null;
 
   return (
-    <Stack screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="index" />
-      <Stack.Screen name="signup" />
-      <Stack.Screen name="login" />
-      <Stack.Screen name="onboarding" />
-      <Stack.Screen name="dashboard" />
-    </Stack>
+    <>
+      <StatusBar barStyle="light-content" backgroundColor="#000" />
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="(auth)" />
+        <Stack.Screen name="(tabs)" />
+      </Stack>
+    </>
   );
 }
